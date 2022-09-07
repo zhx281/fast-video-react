@@ -1,8 +1,23 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import {Nav, Header, Footer, NotFound} from './components';
+import {Actors, Add, Edit, Videos, VideoPlayer} from './pages'
+
 function App() {
   return (
-    <>
-      <h1>Hello World</h1>
-    </>
+    <Router>
+      <Nav />
+      <Header />
+      <Routes>
+        <Route path='/' element={ <Actors /> } />
+        <Route path='/videos' element={ <Videos /> } />
+        <Route path='/videoplayer' element={ <VideoPlayer /> } />
+        <Route path='/add' element={ <Add /> } />
+        <Route path='/edit' element={ <Edit /> } />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
